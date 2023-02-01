@@ -69,26 +69,42 @@ def get_ilvl(message):
 	real = json.loads(real)
 	sum = 0
 	count = 0;
+	off_ilvl = 0;
 	for item in real['equipped_items']:
 		if not (item['slot']['type'] == "TABARD" or item['slot']['type'] == "SHIRT"):
+			if item['slot']['type'] == "MAIN_HAND":
+				main_ilvl = item['level']['value']
+			if item['slot']['type'] == "OFF_HAND":
+				off_ilvl = item['level']['value']
 			sum += int(item['level']['value'])
 			count += 1
+	if off_ilvl == 0:
+		sum += main_ilvl
+		count += 1
 	return [char, sum/count]		
 
 if __name__ == "__main__":
 	tokens = dotenv_values(".env")
 	
 	url = "https://eu.api.blizzard.com/profile/wow/character/"
-	cont = "kazzak/chreed/equipment?namespace=profile-eu&locale=en_GB&access_token="+str(tokens["BLIZZARD_TOKEN"])
+	cont = "kazzak/havredh/equipment?namespace=profile-eu&locale=en_GB&access_token="+str(tokens["BLIZZARD_TOKEN"])
 	res = requests.get(url+cont)
 	real = res.text
 	real = json.loads(real)
 	sum = 0
 	count = 0;
+	off_ilvl = 0;
 	for item in real['equipped_items']:
 		if not (item['slot']['type'] == "TABARD" or item['slot']['type'] == "SHIRT"):
+			if item['slot']['type'] == "MAIN_HAND":
+				main_ilvl = item['level']['value']
+			if item['slot']['type'] == "OFF_HAND":
+				off_ilvl = item['level']['value']
 			sum += int(item['level']['value'])
 			count += 1
+	if off_ilvl == 0:
+		sum += main_ilvl
+		count += 1
 	print(sum/count)
 
 	client.run(tokens["DISCORD_SECRET"])
