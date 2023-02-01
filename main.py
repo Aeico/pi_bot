@@ -76,8 +76,9 @@ def get_ilvl(message):
 	sum = 0
 	count = 0;
 	for item in real['equipped_items']:
-		sum += int(item['level']['value'])
-		count += 1
+		if not (item['slot']['type'] == "TABARD" or item['slot']['type'] == "SHIRT"):
+			sum += int(item['level']['value'])
+			count += 1
 	return [char, sum/count]		
 
 if __name__ == "__main__":
