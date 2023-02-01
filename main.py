@@ -64,7 +64,7 @@ def get_ilvl(message):
 		char = "havredh"
 		server = "kazzak"
 	if message.author.name == "Posez" and message.author.discriminator == '9641':
-		char = "adriedia"
+		char = "adrieda"
 		server = "kazzak"
 	if message.author.name == "Aeico" and message.author.discriminator == '2769':
 		char = "droratio"
