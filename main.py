@@ -78,7 +78,7 @@ def get_ilvl(message):
 				off_ilvl = item['level']['value']
 			sum += int(item['level']['value'])
 			count += 1
-	if off_ilvl == 0:
+	if off_ilvl == 0:#Hello
 		sum += main_ilvl
 		count += 1
 	return [char, sum/count]		
