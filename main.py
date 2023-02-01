@@ -29,7 +29,7 @@ class JockeBot(discord.Client):
 		if message.content == '*bugged':
 			random_num = random.randrange(0,100)
 			print(message.author)
-			if message.author.id.equals("Aeico#2769"):
+			if message.author.id == 121671605444149248:
 				await message.channel.send('The game is anything you want 10/10 Rolled:'+ 100)
 				return;
 			if random_num < 5:
