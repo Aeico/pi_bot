@@ -55,7 +55,7 @@ class JockeBot(discord.Client):
 
 def get_ilvl(message):
 	if message.author.name == "PrisonMike" and message.author.discriminator == '5172':
-		char = "aiiyuu"
+		char = "aaiiyyuu"
 		server = "kazzak"
 	if message.author.name == "Bacornia" and message.author.discriminator == '2634':
 		char = "chreed"
@@ -64,7 +64,7 @@ def get_ilvl(message):
 		char = "havredh"
 		server = "kazzak"
 	if message.author.name == "Posez" and message.author.discriminator == '9641':
-		char = "adreida"
+		char = "adriedia"
 		server = "kazzak"
 	if message.author.name == "Aeico" and message.author.discriminator == '2769':
 		char = "droratio"
