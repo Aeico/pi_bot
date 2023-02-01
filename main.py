@@ -43,7 +43,14 @@ class JockeBot(discord.Client):
 			
 		if message.content == '*wow':
 			res = get_ilvl(message=message)
-			await message.channel.send(res[0]+' Your ilvl is: '+ str(res[1]))
+			extra = ""
+			for i in range(len(res[0])):
+				if i > 0:
+					extra = extra+res[0][i]
+			string = chr(ord(res[0][0])-32)
+			string = string + extra
+			res[0] = string
+			await message.channel.send(res[0]+' your ilvl is: '+ str(res[1]))
 
 
 def get_ilvl(message):
