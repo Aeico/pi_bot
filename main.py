@@ -84,15 +84,16 @@ if __name__ == "__main__":
 	tokens = dotenv_values(".env")
 	
 	url = "https://eu.api.blizzard.com/profile/wow/character/"
-	cont = "kazzak/droratio/equipment?namespace=profile-eu&locale=en_GB&access_token="+str(tokens["BLIZZARD_TOKEN"])
+	cont = "kazzak/chreed/equipment?namespace=profile-eu&locale=en_GB&access_token="+str(tokens["BLIZZARD_TOKEN"])
 	res = requests.get(url+cont)
 	real = res.text
 	real = json.loads(real)
 	sum = 0
 	count = 0;
 	for item in real['equipped_items']:
-		sum += int(item['level']['value'])
-		count += 1
+		if not (item['slot']['type'] == "TABARD" or item['slot']['type'] == "SHIRT"):
+			sum += int(item['level']['value'])
+			count += 1
 	print(sum/count)
 
 	client.run(tokens["DISCORD_SECRET"])
