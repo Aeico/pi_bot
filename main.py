@@ -35,7 +35,7 @@ class JockeBot(discord.Client):
 			if random_num < 5:
 				await message.channel.send('This time the game was not bugged :soupchamp::/ Rolled:'+ str(random_num))
 			elif random_num < 20:
-				await message.channel.send('Game was not bugged but closer towards maybe being bugged Rolled:'+ str(random_num))
+				await message.channel.send('Game was not bugged but closer towards maybe being bugged <a:BUSSERS:769395313563140136> Rolled:'+ str(random_num))
 			elif random_num == 100:
 				await message.channel.send('The game is anything you want 10/10 <:helenaW:1066390018119184474> Rolled:'+ str(random_num))
 			else:
