@@ -29,19 +29,21 @@ class JockeBot(discord.Client):
 		if message.content == '*bugged':
 			random_num = random.randrange(0,100)
 			print(message.author)
-			if message.author.name == "Aeico" and message.author.discriminator == '2769':
-				await message.channel.send('The game is anything you want 10/10 <:helenaW:1066390018119184474> Rolled:'+ str(100))
+			if message.author.name == "PrisonMike" and message.author.discriminator == '5172':
+				await message.channel.send('Not this time Robin I am sorry <:Sadge:791082666782490684>')
 				return;
 			if random_num < 5:
-				await message.channel.send('This time the game was not bugged :soupchamp::/ Rolled:'+ str(random_num))
+				await message.channel.send('This time the game was not bugged <a:modCheck:950386916161880147>:/ Rolled:'+ str(random_num))
 			elif random_num < 20:
-				await message.channel.send('Game was not bugged but closer towards maybe being bugged <a:BUSSERS:769395313563140136> Rolled:'+ str(random_num))
+				await message.channel.send('Game was not bugged but closer towards maybe being bugged <a:borpaSpin:827959496105918565> Rolled:'+ str(random_num))
 			elif random_num == 100:
 				await message.channel.send('The game is anything you want 10/10 <:helenaW:1066390018119184474> Rolled:'+ str(random_num))
+			elif random_num == 69:
+				await message.channel.send('Nice <:EZ:791084186688815104> Rolled:'+ str(random_num))
 			else:
 				await message.channel.send('Game was bugged <:YEP:791084125138321438> Rolled:'+ str(random_num))
 
-
+#https://eu.api.blizzard.com/profile/wow/character/Kazzak/Droratio/equipment?namespace=profile-eu&locale=en_GB&access_token=tokens["BLIZZARD_TOKEN"]
 
 if __name__ == "__main__":
 	tokens = dotenv_values(".env")
