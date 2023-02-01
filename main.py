@@ -2,6 +2,7 @@ import discord
 from discord import client
 from dotenv import dotenv_values
 import random
+import requests
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -43,7 +44,13 @@ class JockeBot(discord.Client):
 			else:
 				await message.channel.send('Game was bugged <:YEP:791084125138321438> Rolled:'+ str(random_num))
 
-#https://eu.api.blizzard.com/profile/wow/character/Kazzak/Droratio/equipment?namespace=profile-eu&locale=en_GB&access_token=tokens["BLIZZARD_TOKEN"]
+	@client.event
+	async def on_message(message):
+		if message.content == '*wow':
+			url = "https://eu.api.blizzard.com/profile/wow/character/"
+			cont = "Kazzak/Droratio/equipment?namespace=profile-eu&locale=en_GB&access_token="+str(tokens["BLIZZARD_TOKEN"])
+			requests.get(url+cont)
+		
 
 if __name__ == "__main__":
 	tokens = dotenv_values(".env")
