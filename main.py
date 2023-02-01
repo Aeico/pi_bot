@@ -20,20 +20,16 @@ class JockeBot(discord.Client):
 	async def on_message(message):
 		if message.content == '*hi':
 			await message.channel.send('Hello!')
-	
-	@client.event
-	async def on_message(message):
+
 		if message.content == '*commands':
 			await message.channel.send('Choices are *commands and *hi!')
-		
-	@client.event
-	async def on_message(message):
+
 		if message.content == '*bugged':
 			random_num = random.randrange(0,100)
 			print(message.author)
 			if message.author.name == "PrisonMike" and message.author.discriminator == '5172':
 				await message.channel.send('Not this time Robin I am sorry <:Sadge:791082666782490684>')
-				return;
+				return
 			if random_num < 5:
 				await message.channel.send('This time the game was not bugged <a:modCheck:950386916161880147>:/ Rolled:'+ str(random_num))
 			elif random_num < 20:
@@ -44,9 +40,7 @@ class JockeBot(discord.Client):
 				await message.channel.send('Nice <:EZ:791084186688815104> Rolled:'+ str(random_num))
 			else:
 				await message.channel.send('Game was bugged <:YEP:791084125138321438> Rolled:'+ str(random_num))
-
-	@client.event
-	async def on_message(message):
+			
 		if message.content == '*wow':
 			res = get_ilvl(message=message)
 			await message.channel.send(res[0]+' Your ilvl is: '+ str(res[1]))
