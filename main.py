@@ -47,11 +47,8 @@ class JockeBot(discord.Client):
 
 if __name__ == "__main__":
 	tokens = dotenv_values(".env")
-	#intents = discord.Intents.default()
-	#intents.message_content = True
-	#jocke_bot = JockeBot(intents)
 	
+	
+
 	client.run(tokens["DISCORD_SECRET"])
 	
-	print(tokens["DISCORD_PUBLIC_KEY"])
-	print("hello")
