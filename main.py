@@ -3,6 +3,7 @@ from discord import client
 from dotenv import dotenv_values
 import random
 import requests
+import json
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -47,15 +48,52 @@ class JockeBot(discord.Client):
 	@client.event
 	async def on_message(message):
 		if message.content == '*wow':
-			url = "https://eu.api.blizzard.com/profile/wow/character/"
-			cont = "Kazzak/Droratio/equipment?namespace=profile-eu&locale=en_GB&access_token="+str(tokens["BLIZZARD_TOKEN"])
-			requests.get(url+cont)
-		
+			res = get_ilvl(message=message)
+			await message.channel.send(res[0]+' Your ilvl is: '+ str(res[1]))
+
+
+def get_ilvl(message):
+	if message.author.name == "PrisonMike" and message.author.discriminator == '5172':
+		char = "aiiyuu"
+		server = "kazzak"
+	if message.author.name == "Bacornia" and message.author.discriminator == '2634':
+		char = "chreed"
+		server = "kazzak"
+	if message.author.name == "Havrekakan" and message.author.discriminator == '0001':
+		char = "havredh"
+		server = "kazzak"
+	if message.author.name == "Posez" and message.author.discriminator == '9641':
+		char = "adreida"
+		server = "kazzak"
+	if message.author.name == "Aeico" and message.author.discriminator == '2769':
+		char = "droratio"
+		server = "kazzak"
+	url = "https://eu.api.blizzard.com/profile/wow/character/"
+	cont = server+"/"+char+"/equipment?namespace=profile-eu&locale=en_GB&access_token="+str(tokens["BLIZZARD_TOKEN"])
+	res = requests.get(url+cont)
+	real = res.text
+	real = json.loads(real)
+	sum = 0
+	count = 0;
+	for item in real['equipped_items']:
+		sum += int(item['level']['value'])
+		count += 1
+	return [char, sum/count]		
 
 if __name__ == "__main__":
 	tokens = dotenv_values(".env")
 	
-	
+	url = "https://eu.api.blizzard.com/profile/wow/character/"
+	cont = "kazzak/droratio/equipment?namespace=profile-eu&locale=en_GB&access_token="+str(tokens["BLIZZARD_TOKEN"])
+	res = requests.get(url+cont)
+	real = res.text
+	real = json.loads(real)
+	sum = 0
+	count = 0;
+	for item in real['equipped_items']:
+		sum += int(item['level']['value'])
+		count += 1
+	print(sum/count)
 
 	client.run(tokens["DISCORD_SECRET"])
 	
