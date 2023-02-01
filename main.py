@@ -30,14 +30,14 @@ class JockeBot(discord.Client):
 			random_num = random.randrange(0,100)
 			print(message.author)
 			if message.author.name == "Aeico" and message.author.discriminator == '2769':
-				await message.channel.send('The game is anything you want 10/10 Rolled:'+ str(100))
+				await message.channel.send('The game is anything you want 10/10 <:helenaW:1066390018119184474> Rolled:'+ str(100))
 				return;
 			if random_num < 5:
 				await message.channel.send('This time the game was not bugged :soupchamp::/ Rolled:'+ str(random_num))
 			elif random_num < 20:
 				await message.channel.send('Game was not bugged but closer towards maybe being bugged Rolled:'+ str(random_num))
 			elif random_num == 100:
-				await message.channel.send('The game is anything you want 10/10 Rolled:'+ str(random_num))
+				await message.channel.send('The game is anything you want 10/10 <:helenaW:1066390018119184474> Rolled:'+ str(random_num))
 			else:
 				await message.channel.send('Game was bugged <:YEP:791084125138321438> Rolled:'+ str(random_num))
 
