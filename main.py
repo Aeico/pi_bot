@@ -22,7 +22,7 @@ class JockeBot(discord.Client):
 			await message.channel.send('Hello!')
 
 		if message.content == '*commands':
-			await message.channel.send('```Choices are *commands, *hi, *wow for wow ilvl, *bugged for a bugged game roll```')
+			await message.channel.send('```Choices are: \n*commands \n*hi \n*wow for wow ilvl \n*bugged for a bugged game roll```')
 
 		if message.content == '*bugged':
 			random_num = random.randrange(0,100)
