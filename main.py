@@ -24,12 +24,12 @@ class JockeBot(discord.Client):
 		if message.content == '*commands':
 			await message.channel.send('```Choices are: \n*commands \n*hi \n*wow for wow ilvl \n*bugged for a bugged game roll```')
 
-		if message.content == '*bugged':
+		if message.content == '*bugged' or message.content == '*bugd' or message.content == '*bug' or message.content == '*bugg':
 			random_num = random.randrange(0,100)
 			print(message.author)
-			if message.author.name == "PrisonMike" and message.author.discriminator == '5172':
-				await message.channel.send('Not this time Robin I am sorry <:Sadge:791082666782490684>')
-				return
+			#if message.author.name == "PrisonMike" and message.author.discriminator == '5172':
+				#await message.channel.send('Is ok you get to now')
+				#return
 			if random_num < 5:
 				await message.channel.send('This time the game was not bugged <a:modCheck:950386916161880147>:/ Rolled:'+ str(random_num))
 			elif random_num < 20:
